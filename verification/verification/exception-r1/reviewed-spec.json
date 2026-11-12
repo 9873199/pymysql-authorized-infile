@@ -1,0 +1,63 @@
+{
+  "uid": 1740,
+  "run_id": "uf-20261112-new15-infile",
+  "reviewed": true,
+  "reviewer": "Codex primary agent, AI-assisted",
+  "frozen_trace_sha256": "522be3bfd24d4eb9aefebcc614ed121ef938af0315a03d672708413e922c073a",
+  "revision": "exception-r1",
+  "product_modules": [
+    "pymysql"
+  ],
+  "support_files": [
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\infile_api.py",
+      "path": "infile_api.py",
+      "sha256": "3334758d2e603dd2fbf8e43c0e475401986386bf0b8c8915642bfdd22e62d4e1"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\infile-memory-peer.py",
+      "path": "infile-memory-peer.py",
+      "sha256": "69741303a5535ed9018105cef8ece3b0f76d77c0df6c41c3a6d23df3c54521a7"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\infile-exception-tests.py",
+      "path": "test_infile_exception.py",
+      "sha256": "31e807bd875f45f316407a724aeb6a2aaaa77f44f3282d44be8375734611ab99"
+    }
+  ],
+  "commands": [
+    {
+      "name": "established-result-error",
+      "argv": [
+        "{python}",
+        "-B",
+        "-m",
+        "pytest",
+        "-q",
+        "-s",
+        "-o",
+        "addopts=",
+        "-p",
+        "no:cacheprovider",
+        "--tb=short",
+        "{verification}/test_infile_exception.py",
+        "--basetemp",
+        "{verification}/tmp-error",
+        "--junitxml",
+        "{verification}/errors.xml"
+      ]
+    }
+  ],
+  "api_review": "The actual final Cursor/SSCursor.execute accepts keyword local_infile_streams. Adapter forwards without validation, revocation or stream policy.",
+  "planned_manual_review": [
+    "all filesystem open sites",
+    "reconnect and exception cleanup",
+    "cursor close order",
+    "identity-based stream reuse"
+  ],
+  "contract_review": {
+    "reason": "Final SSCursor.close calls _finish_unbuffered_query outside its finally. The row reader has no catch, while _read_packet leaves a synchronized server ERR connection open. Prompt explicitly requires revocation on exceptions.",
+    "instrumentation": "A valid server ERR 1105 replaces terminal row EOF in the peer, without changing product or injecting an exception into product methods.",
+    "no_assumption_of_data_leak": true
+  }
+}

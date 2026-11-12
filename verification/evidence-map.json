@@ -1,0 +1,69 @@
+{
+  "observable_review": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\observations\\1740\\frozen.json",
+  "requirements": [
+    {
+      "requirement": "Raw byte name and no filesystem access",
+      "result": "VERIFIED",
+      "evidence": [
+        "acceptance-r2 boundary tests and demo",
+        "connections.py _read_load_local_packet/_send_local_stream"
+      ]
+    },
+    {
+      "requirement": "One consumption per stream object",
+      "result": "FAIL",
+      "source": "connections.py:1498 streams.pop(filename) only",
+      "evidence": [
+        "acceptance-r2/alias-observation.stdout.log",
+        "test_infile_boundary.py:179"
+      ],
+      "native_claim": "line 808: pop grants a stream at most once",
+      "impact": "Same generated data actually uploaded twice"
+    },
+    {
+      "requirement": "Revocation after exception in result lifecycle",
+      "result": "FAIL",
+      "source": [
+        "cursors.py SSCursor.close _finish_unbuffered_query before try",
+        "connections.py _read_rowdata_packet_unbuffered and _finish_unbuffered_query"
+      ],
+      "evidence": [
+        "exception-r1/established-result-error.stdout.log"
+      ],
+      "native_actions": [
+        216,
+        737,
+        738,
+        804,
+        805,
+        808
+      ],
+      "impact": "Grant remains after actual server error; no downstream exfiltration asserted"
+    },
+    {
+      "requirement": "Normal lifecycle, old unread command ownership and legacy bool",
+      "result": "VERIFIED",
+      "evidence": [
+        "acceptance-r2 lifetime 5 cases",
+        "product protocol 32 cases"
+      ]
+    },
+    {
+      "requirement": "Failed read/rejection closes unsynchronized connection and preserves caller ownership",
+      "result": "VERIFIED_WITHIN_TESTED_CASES",
+      "evidence": [
+        "acceptance-r2 boundary group",
+        "product tests"
+      ]
+    }
+  ],
+  "excluded_evaluation_errors": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\acceptance-contract-review-r2.json",
+  "test_scope_clarification": "Native 58 combined includes new 32; no summing repeated revisions",
+  "model_test_process": "Model repaired SET/EOF peer fixtures within its first turn. Fixture errors do not establish final defects.",
+  "read_source_review": "Authorized branch never reaches legacy _send_local_file open; final reconnect/force_close revoke reviewed",
+  "time": "2026-11-13T04:20:20+08:00",
+  "uid": 1740,
+  "frozen_commit": "95b01a407375544006f066de2743e79a6599e171",
+  "native_trace_sha256": "522be3bfd24d4eb9aefebcc614ed121ef938af0315a03d672708413e922c073a",
+  "no_model_source_changes_after_freeze": true
+}

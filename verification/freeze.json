@@ -1,0 +1,448 @@
+{
+  "time": "2026-11-13T04:05:52+08:00",
+  "task_id": "uf-20261112-new15-infile",
+  "run_id": "uf-20261112-new15-infile",
+  "uid": 1740,
+  "workspace": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\sources\\infile",
+  "artifact_directory": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\frozen-artifact",
+  "git_head_after_model": "7b9584ff127fac3138668b01a321ebace725663c",
+  "initial_sha": "7b9584ff127fac3138668b01a321ebace725663c",
+  "trajectory_file": "D:\\hc\\userFeedback\\cache\\runs\\uf-20261112-new15-infile\\frozen\\trajectory-original.jsonl",
+  "trajectory_sha256": "522be3bfd24d4eb9aefebcc614ed121ef938af0315a03d672708413e922c073a",
+  "session_ids": [
+    "a73dcfd9-fb20-45f9-867c-32052dc8457b"
+  ],
+  "prompt_ids": [
+    "90abb4b9-63e4-4447-90ae-f2b55adedfbe"
+  ],
+  "user_turns": 1,
+  "prompt_sha256": "06b465017b66d1a9cc56e52204810272e2a30044f39392d8a28ccdc19c9bfc34",
+  "frozen_files": [
+    {
+      "path": ".coveragerc",
+      "sha256": "a10b72b4c6afba5aa297a742e59d8cd3494f2abb013e491d0ed6f84be3c5bc49",
+      "bytes": 310
+    },
+    {
+      "path": ".github/FUNDING.yml",
+      "sha256": "f424f87c73539e4ffb9d5e2f89dc23e76f3d7878b844f85c62a4258a0397f3a5",
+      "bytes": 738
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/bug_report.md",
+      "sha256": "35b4a9f72d62d50d7250f63040b833ba5a43c7e5240b48562f8b6ee3852bfa96",
+      "bytes": 629
+    },
+    {
+      "path": ".github/dependabot.yml",
+      "sha256": "7f43262e647eed8c7f9fc9e00e6c06eb2be5d2647919d44ee9e0decb8f83ff8e",
+      "bytes": 534
+    },
+    {
+      "path": ".github/workflows/actions.lock",
+      "sha256": "182e4d1b3d86a8fa73b07fb0fee7ee2bddb644841a0b621dbb173224322918e2",
+      "bytes": 2663
+    },
+    {
+      "path": ".github/workflows/django.yaml",
+      "sha256": "1f51e9610dbec4b6ceb3f4de2be52f3716b7315f8bdc34903637be41301005e4",
+      "bytes": 2132
+    },
+    {
+      "path": ".github/workflows/lint.yaml",
+      "sha256": "4da63ecc1dec8190a91fb9d94ca7918f4fdaca9905fd5f36882d6bda393b9a2f",
+      "bytes": 355
+    },
+    {
+      "path": ".github/workflows/publish.yml",
+      "sha256": "dc0fa5c9133507a93565b3c0afdd243075b313543e8a21a21e3e655500d1a31c",
+      "bytes": 2336
+    },
+    {
+      "path": ".github/workflows/test.yaml",
+      "sha256": "3c65b9bf98e986b542fa30228fe9bcf04e24cf939b1df8a25b4b49ad333baaa2",
+      "bytes": 3422
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "40fc333eb17f171c852bacc2ad2d139b1c53535700ba3cbf3c277b4f80444e92",
+      "bytes": 167
+    },
+    {
+      "path": ".readthedocs.yaml",
+      "sha256": "b6ab2f33f55c254c3b83e7db478b7758aea109a0c6f0416150e02849789d9e54",
+      "bytes": 362
+    },
+    {
+      "path": "AGENTS.md",
+      "sha256": "2f45fe73edbda2611c58a4b1f3b8f5d9a887d17d1deecbbf7ac032c2ffe8518e",
+      "bytes": 1638
+    },
+    {
+      "path": "CHANGELOG.md",
+      "sha256": "bb6b0b62beca6086d4a718e9262df016b554a4da6797a37df5c6da6e87b21e2e",
+      "bytes": 19886
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "314120dc65f0800f738a4b31400c76ee14decd1fbe77ce9c3540a421b86ea7b6",
+      "bytes": 1070
+    },
+    {
+      "path": "MANIFEST.in",
+      "sha256": "3f7fb8dd725d9b75954b2c8fe5704b85ce1e17441a3f46d561eba5cbf7d4a21a",
+      "bytes": 39
+    },
+    {
+      "path": "README.md",
+      "sha256": "41b354e5713811f897b4fa81838b56364b152292c92a3bda55b88159e47ce650",
+      "bytes": 3267
+    },
+    {
+      "path": "SECURITY.md",
+      "sha256": "b1182bf0ffb2997eefb6fd915668f6a7d4d769ee70f50314c4c8918f2efe33f6",
+      "bytes": 379
+    },
+    {
+      "path": "ci/database.json",
+      "sha256": "8cf34e5ff06d6419f0c5e9f9fe370e5eee8902659a19370fadc9728ead0492a3",
+      "bytes": 282
+    },
+    {
+      "path": "ci/docker-entrypoint-initdb.d/README",
+      "sha256": "5e0cf2afec02f634c071489f236cf53f67f7d3f5dade7a47eb1f278602ee8181",
+      "bytes": 362
+    },
+    {
+      "path": "ci/docker-entrypoint-initdb.d/init.sql",
+      "sha256": "bf2d84412f2dd1915857c9133e43d212a9d7000cbf4eedceaeec5bb407173eb4",
+      "bytes": 297
+    },
+    {
+      "path": "ci/docker-entrypoint-initdb.d/mariadb.sql",
+      "sha256": "183f467152db10b918a0db07e20f89294852b89fd19498d54bb51de26d6e6495",
+      "bytes": 133
+    },
+    {
+      "path": "ci/docker-entrypoint-initdb.d/mysql.sql",
+      "sha256": "65ad17ccf1a8586f14bb682ee25408fd20494b5e8bb30e109a3605ea0b67c5c7",
+      "bytes": 493
+    },
+    {
+      "path": "ci/docker.json",
+      "sha256": "c6a1b074cee7b00551c02700f00a6508deab16be9b2d0a14b876721f56800e4a",
+      "bytes": 401
+    },
+    {
+      "path": "ci/test_mysql.py",
+      "sha256": "7f64e2984078b7e41b77db8de5d94b0b5c94d06b6ccde791e157a6a698006ef6",
+      "bytes": 1498
+    },
+    {
+      "path": "codecov.yml",
+      "sha256": "8c82ed61bda979a2f221ad6a788ce5eb01b6ca6d1cdc1833d65464c187d0c1be",
+      "bytes": 142
+    },
+    {
+      "path": "docs/Makefile",
+      "sha256": "87b888a9b96790b73e28423fb63baeabdf57fff7564867ff972d0fa12eaa4b12",
+      "bytes": 5903
+    },
+    {
+      "path": "docs/requirements.txt",
+      "sha256": "d6053a0bcb63cd808b220b7d82f4894df6684e35d29280ac2d32cdbdb5d849cd",
+      "bytes": 36
+    },
+    {
+      "path": "docs/source/conf.py",
+      "sha256": "49d28e03a1de4a58e71fc95df7a63bf499afe70bd6d0e23c3ac104357a3a82cc",
+      "bytes": 8595
+    },
+    {
+      "path": "docs/source/index.rst",
+      "sha256": "c86f05708f10ad55b925eb835633c9c2512677f63a6a8a449f479f40f4cfa23d",
+      "bytes": 197
+    },
+    {
+      "path": "docs/source/modules/connections.rst",
+      "sha256": "827ac5b2754cb94443d2998ef8bcc06c66c90051c3d58d750e3e1f58b3d25cbd",
+      "bytes": 367
+    },
+    {
+      "path": "docs/source/modules/cursors.rst",
+      "sha256": "e96ee6be8234c68475f243687813bb3362bcc03f7f502ec7464be1d7e266820e",
+      "bytes": 421
+    },
+    {
+      "path": "docs/source/modules/index.rst",
+      "sha256": "eb51877cda080b99fa788f87c3eccdc28c401d3b32ff2e1e31b2f20471559193",
+      "bytes": 315
+    },
+    {
+      "path": "docs/source/user/development.rst",
+      "sha256": "1e575c59eb3fea8936f6f70445aff94fd784188630c62b3363dc6b369711f25a",
+      "bytes": 955
+    },
+    {
+      "path": "docs/source/user/examples.rst",
+      "sha256": "eb990c943464c3497532b665d22dc8c7ad82a31df19ee0712e92ddd262f810f6",
+      "bytes": 3588
+    },
+    {
+      "path": "docs/source/user/index.rst",
+      "sha256": "6cebe8a5070c156e4624c466d6b053ca39ae6ca217fb65532ad9bd7fcb7f77b4",
+      "bytes": 216
+    },
+    {
+      "path": "docs/source/user/installation.rst",
+      "sha256": "9709c448a4c9bf198fe17a080e82ed1b7a93ca61aedcaadbfecdf7459ab95c28",
+      "bytes": 653
+    },
+    {
+      "path": "docs/source/user/resources.rst",
+      "sha256": "e1050bfd484df236c0b90c644195e7408ec6103a232dc594b5abd2fcbb7ba1c6",
+      "bytes": 329
+    },
+    {
+      "path": "pymysql/__init__.py",
+      "sha256": "c73fcd103a8593f24abb70afdd16701b1fc1badc874e5f5d708154c24fd3cba7",
+      "bytes": 4248
+    },
+    {
+      "path": "pymysql/_auth.py",
+      "sha256": "aa7aa220f4a8a16f782b5543d7bcd96819a3f492b881318b4cf5257bc5e66613",
+      "bytes": 7637
+    },
+    {
+      "path": "pymysql/charset.py",
+      "sha256": "6381a0303c67d18cfef7d370b2d7c22de09fa1115dc32c16a07ae7e469ef8219",
+      "bytes": 10258
+    },
+    {
+      "path": "pymysql/connections.py",
+      "sha256": "abef8a4949555044a6ec573bede02eca9c0e9def2f978def4c32b427aff0e852",
+      "bytes": 68063
+    },
+    {
+      "path": "pymysql/constants/CLIENT.py",
+      "sha256": "492bcc14f6424d5314d5459ae333ab7e160c0dd476c06da64b41391b32610ec8",
+      "bytes": 878
+    },
+    {
+      "path": "pymysql/constants/COMMAND.py",
+      "sha256": "4c621301470d5a5ab61b0836c2fe542b6ca47537782d84e4fc470924e0a91887",
+      "bytes": 679
+    },
+    {
+      "path": "pymysql/constants/CR.py",
+      "sha256": "424df915644cc511dde926bd0822004cc87b8de811df19cb76b75a0424f47534",
+      "bytes": 2320
+    },
+    {
+      "path": "pymysql/constants/ER.py",
+      "sha256": "9cb9dff4735162f65ed7f64b6eb2e0822bcb7c753ee472c9d7be28d608192e85",
+      "bytes": 12401
+    },
+    {
+      "path": "pymysql/constants/FIELD_TYPE.py",
+      "sha256": "cad1738009c699bf61bddb019672baf2a759bff6ba8d81485d3e954806fad33f",
+      "bytes": 370
+    },
+    {
+      "path": "pymysql/constants/FLAG.py",
+      "sha256": "172f8fac22e7508edfc7fa395b2a589d403358033413d779c8bf1f15154a7df6",
+      "bytes": 214
+    },
+    {
+      "path": "pymysql/constants/SERVER_STATUS.py",
+      "sha256": "9b6f08ab92460850962e169f13bdfe88ebf0ffd8031aa9f2b56dcd907a5bba00",
+      "bytes": 333
+    },
+    {
+      "path": "pymysql/constants/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "pymysql/converters.py",
+      "sha256": "d1a60c8d778730c78dd0e0dc7bf4fcef07458c3b12dfaf99eba586ca4fef9de6",
+      "bytes": 10263
+    },
+    {
+      "path": "pymysql/cursors.py",
+      "sha256": "46e4bc96766a9af8433cda3fd01099b68628cba6799866272fbfdab74edab279",
+      "bytes": 18108
+    },
+    {
+      "path": "pymysql/err.py",
+      "sha256": "6d1bdc7ec7a195d5ec9fc746b30e0d74f959026f03173459038a86496e0e8eb5",
+      "bytes": 4230
+    },
+    {
+      "path": "pymysql/optionfile.py",
+      "sha256": "790a33e9ce37caf987b69e4c23d4c1d863d176882038b7a6714580064b1fbad9",
+      "bytes": 651
+    },
+    {
+      "path": "pymysql/protocol.py",
+      "sha256": "a0b867ac55b3a82be794a15b63d900d834bfd883276a4ce1b4049a90bca5deb4",
+      "bytes": 11747
+    },
+    {
+      "path": "pymysql/tests/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "pymysql/tests/base.py",
+      "sha256": "3e2aa2daba67f1d261ae0ab27aaefd16120f6e177d3b9448fedc41d5716b5634",
+      "bytes": 3520
+    },
+    {
+      "path": "pymysql/tests/data/load_local_data.txt",
+      "sha256": "1171c58cd30ef5342fd54aa24b73a7cc16db5be35f933ddf2c4c05d2804687ee",
+      "bytes": 113753
+    },
+    {
+      "path": "pymysql/tests/data/load_local_warn_data.txt",
+      "sha256": "beffd2fcd64b0d29d9f9df9db41d922ec19b936efe4c7d0c9cfc61fa21a75342",
+      "bytes": 249
+    },
+    {
+      "path": "pymysql/tests/test_DictCursor.py",
+      "sha256": "8b9d5ca062b7e700795d2f6306de50cf00e74797cc4945f0eb0e101bf3d4a773",
+      "bytes": 4617
+    },
+    {
+      "path": "pymysql/tests/test_SSCursor.py",
+      "sha256": "b0e8ea93c662b3ec20ae1dd6fb3a6d3fb898139ab1f20a54ab13ed840af79a45",
+      "bytes": 8027
+    },
+    {
+      "path": "pymysql/tests/test_auth_state_machine.py",
+      "sha256": "c2a8070b052373b12c6e72d2683bb79e26f91011f6dce0dedb7a52f74dd19a03",
+      "bytes": 6255
+    },
+    {
+      "path": "pymysql/tests/test_basic.py",
+      "sha256": "95dccded45cff8370c1419967fe530bf7b62695faa203a86fb1ece65ff12f140",
+      "bytes": 16234
+    },
+    {
+      "path": "pymysql/tests/test_charset.py",
+      "sha256": "f12aceded3a4d3dc1d97b2264d5d18bf6ec27d2494aa1f892bdf7fb1f02aee2e",
+      "bytes": 1638
+    },
+    {
+      "path": "pymysql/tests/test_connection.py",
+      "sha256": "0b409da186afcfd65a8d0ae7289c9b8e94ca9f471bb76a251dc334368cd7ee93",
+      "bytes": 39402
+    },
+    {
+      "path": "pymysql/tests/test_converters.py",
+      "sha256": "3ad0ee82899d743d6c07f0c661a27c604e7b6a3b873bde37e0c8477ab06fdf7c",
+      "bytes": 4063
+    },
+    {
+      "path": "pymysql/tests/test_cursor.py",
+      "sha256": "a682db0a440da45596fb700e34829f850fb0d30cc0ff3c2662e5e4014338751b",
+      "bytes": 8747
+    },
+    {
+      "path": "pymysql/tests/test_err.py",
+      "sha256": "3a092197f4f4dd49dd75ca15014acdfabf586414af8776d83f40145145cd00db",
+      "bytes": 1291
+    },
+    {
+      "path": "pymysql/tests/test_issues.py",
+      "sha256": "c9558ea052874e9696dd54d3811568c9a1681773cfe0c383a899af03625e9882",
+      "bytes": 19306
+    },
+    {
+      "path": "pymysql/tests/test_load_local.py",
+      "sha256": "360ca981dc889f44b32a32a7847893bad3111e9f72fa4449394360e8aa7002cd",
+      "bytes": 3446
+    },
+    {
+      "path": "pymysql/tests/test_local_infile_streams.py",
+      "sha256": "6cd17fc49f1cc0e1c35cf6a950f4c6a38f874af815f90928b8cb847e283af550",
+      "bytes": 35287
+    },
+    {
+      "path": "pymysql/tests/test_nextset.py",
+      "sha256": "8f95efdcc5f0290e342b1c19c18a0072786c2cd5e28756380485fe64bb8e5087",
+      "bytes": 2544
+    },
+    {
+      "path": "pymysql/tests/test_optionfile.py",
+      "sha256": "f3c86a57b944ba262baaa1607bfa80a463eab969e412014dfbf66835b2b1ebde",
+      "bytes": 556
+    },
+    {
+      "path": "pymysql/tests/thirdparty/__init__.py",
+      "sha256": "e1a4cf086f27dd3d42c58e1ea27f7682aa93dda516ab48e1796b0f59482aa373",
+      "bytes": 97
+    },
+    {
+      "path": "pymysql/tests/thirdparty/test_MySQLdb/__init__.py",
+      "sha256": "e1011a38e5e56c31415c60c816a7bcecca69ae7e98e537e9f4852f73ab6870dd",
+      "bytes": 109
+    },
+    {
+      "path": "pymysql/tests/thirdparty/test_MySQLdb/capabilities.py",
+      "sha256": "741c00e3836175775596ce4c6d24107d03c095b1b5d26073dc0a72e89feaf97b",
+      "bytes": 9813
+    },
+    {
+      "path": "pymysql/tests/thirdparty/test_MySQLdb/dbapi20.py",
+      "sha256": "5fcb509f20c05159865d1b3fc3957781de14b74e7b56aa585415d32655162499",
+      "bytes": 31275
+    },
+    {
+      "path": "pymysql/tests/thirdparty/test_MySQLdb/test_MySQLdb_capabilities.py",
+      "sha256": "c2239ed780a334488b0b89def463c69c25d0c5d9dde3edca8e8ea18e7cc6ab65",
+      "bytes": 3029
+    },
+    {
+      "path": "pymysql/tests/thirdparty/test_MySQLdb/test_MySQLdb_dbapi20.py",
+      "sha256": "9ab1edb40ebe3eb7216fc3563ac1a5cad52e024d68ef3ab810e823f7c291d396",
+      "bytes": 7896
+    },
+    {
+      "path": "pymysql/tests/thirdparty/test_MySQLdb/test_MySQLdb_nonstandard.py",
+      "sha256": "ac7444dba1b694798d0012b11f9f902d839117abc25f388fbc8e15aeafe1c31e",
+      "bytes": 2797
+    },
+    {
+      "path": "pymysql/times.py",
+      "sha256": "2a7bfc32b18512f5609657d44f2ea9556bc7cef56c7a66737ef1ddcaf54f846f",
+      "bytes": 359
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "0c3fbc0b53bdaad91e4036c511662d282e7a858192a37e952c0a822a8bf8f7ca",
+      "bytes": 1492
+    },
+    {
+      "path": "renovate.json",
+      "sha256": "f0d57d0648b4b0cf10ac0b9f6416fd404cf7b9b4744edfba2d1a44d8b942e3d9",
+      "bytes": 139
+    },
+    {
+      "path": "requirements-dev.txt",
+      "sha256": "6cafa9ab654a5f2409cbe58a643985be0ebc5636c56b8521047518cab4fa18e5",
+      "bytes": 45
+    },
+    {
+      "path": "tests/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "tests/test_auth.py",
+      "sha256": "b58db6d19cd6b3ad428bb97ce0fea3c5fc243502b84f94af58a74d8a0fa226d8",
+      "bytes": 2888
+    }
+  ],
+  "no_postrun_product_changes": true
+}

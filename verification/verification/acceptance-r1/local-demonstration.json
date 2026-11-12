@@ -1,0 +1,12 @@
+{
+  "time": "2026-11-13T04:09:20+08:00",
+  "argv": [
+    "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\tasks\\infile\\env\\Scripts\\python.exe",
+    "-B",
+    "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\acceptance-r1/infile-demo.py"
+  ],
+  "cwd": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\acceptance-r1\\replay-source",
+  "exit_code": 0,
+  "stdout_log": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\acceptance-r1\\local-demonstration.stdout.log",
+  "stderr_log": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\acceptance-r1\\local-demonstration.stderr.log"
+}

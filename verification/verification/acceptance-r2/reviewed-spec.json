@@ -1,0 +1,107 @@
+{
+  "uid": 1740,
+  "run_id": "uf-20261112-new15-infile",
+  "reviewed": true,
+  "reviewer": "Codex primary agent, AI-assisted",
+  "frozen_trace_sha256": "522be3bfd24d4eb9aefebcc614ed121ef938af0315a03d672708413e922c073a",
+  "revision": "acceptance-r2",
+  "product_modules": [
+    "pymysql"
+  ],
+  "support_files": [
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\infile_api.py",
+      "path": "infile_api.py",
+      "sha256": "3334758d2e603dd2fbf8e43c0e475401986386bf0b8c8915642bfdd22e62d4e1"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\infile-memory-peer.py",
+      "path": "infile-memory-peer.py",
+      "sha256": "69741303a5535ed9018105cef8ece3b0f76d77c0df6c41c3a6d23df3c54521a7"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\infile-independent-tests-r3.py",
+      "path": "test_infile_boundary.py",
+      "sha256": "cf501d9a9aa60f6f3b48212af279d9696754a9587d5e2f1bab7652e6e1c63b78"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\infile-lifetime-tests-r2.py",
+      "path": "test_infile_lifetime.py",
+      "sha256": "bfcef1242c8f1e01fe8f1e875729b573e0db5ec9c3e8fb2a7101414106c18200"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\infile-alias-observation.py",
+      "path": "infile-alias-observation.py",
+      "sha256": "f8bedfa970a1b14569db911f9ea8eda7d760bbcae11b668a69caea6dc8d11a4e"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\infile-demo.py",
+      "path": "infile-demo.py",
+      "sha256": "e61b2f8f38c522ddfa88bc2a94223107eed17478f5d765b2402ca3f1ddde6303"
+    }
+  ],
+  "commands": [
+    {
+      "name": "independent-protocol",
+      "argv": [
+        "{python}",
+        "-B",
+        "-m",
+        "pytest",
+        "-q",
+        "-o",
+        "addopts=",
+        "-p",
+        "no:cacheprovider",
+        "--tb=short",
+        "{verification}/test_infile_boundary.py",
+        "--basetemp",
+        "{verification}/tmp-boundary",
+        "--junitxml",
+        "{verification}/boundary.xml"
+      ]
+    },
+    {
+      "name": "independent-lifetime",
+      "argv": [
+        "{python}",
+        "-B",
+        "-m",
+        "pytest",
+        "-q",
+        "-o",
+        "addopts=",
+        "-p",
+        "no:cacheprovider",
+        "--tb=short",
+        "{verification}/test_infile_lifetime.py",
+        "--basetemp",
+        "{verification}/tmp-lifetime",
+        "--junitxml",
+        "{verification}/lifetime.xml"
+      ]
+    },
+    {
+      "name": "alias-observation",
+      "argv": [
+        "{python}",
+        "-B",
+        "{verification}/infile-alias-observation.py"
+      ]
+    }
+  ],
+  "api_review": "The actual final Cursor/SSCursor.execute accepts keyword local_infile_streams. Adapter forwards without validation, revocation or stream policy.",
+  "planned_manual_review": [
+    "all filesystem open sites",
+    "reconnect and exception cleanup",
+    "cursor close order",
+    "identity-based stream reuse"
+  ],
+  "contract_review": {
+    "original_records": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\acceptance-r1",
+    "corrected_close_semantics": "Prompt says revoke after cursor close, while authorization covers the whole original result lifecycle. Draining the original authorized result inside close is permitted; former before-drain expectation was stricter than the prompt and is excluded from scoring.",
+    "confirmed_product_concern": "The raw-name dict.pop removes only one alias, without tracking already-consumed stream identity. Observe the same read-only caller-owned stream after seeking back to its beginning.",
+    "model_source_trace_prompt_or_score_changed": false,
+    "repeat_scope": "Only revised affected independent groups plus precise observation; upstream/model regression successes retained from acceptance-r1"
+  }
+}

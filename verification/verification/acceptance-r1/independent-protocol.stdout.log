@@ -1,0 +1,16 @@
+.........F..F                                                            [100%]
+================================== FAILURES ===================================
+___________ test_one_stream_object_cannot_be_consumed_twice[False] ____________
+..\test_infile_boundary.py:110: in test_one_stream_object_cannot_be_consumed_twice
+    with pytest.raises(Exception):
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE Exception
+____________ test_cursor_close_removes_unused_stream_authorization ____________
+..\test_infile_boundary.py:162: in test_cursor_close_removes_unused_stream_authorization
+    assert not stream.read_calls and stream.close_calls == 0
+E   assert (not [16384, 16384])
+E    +  where [16384, 16384] = <test_infile_boundary.ReadOnlyStream object at 0x00000219A2DB8090>.read_calls
+=========================== short test summary info ===========================
+FAILED ..\test_infile_boundary.py::test_one_stream_object_cannot_be_consumed_twice[False]
+FAILED ..\test_infile_boundary.py::test_cursor_close_removes_unused_stream_authorization
+2 failed, 11 passed in 7.12s

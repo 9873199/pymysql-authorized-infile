@@ -1,0 +1,91 @@
+{
+  "title": "Local data import",
+  "directory": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\recording\\r1",
+  "cwd": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\acceptance-r2\\replay-source",
+  "capture": "wgc",
+  "environment": {
+    "PYTHONPATH": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\acceptance-r2\\replay-source;D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\acceptance-r2",
+    "PYTHONDONTWRITEBYTECODE": "1"
+  },
+  "commands": [
+    {
+      "id": "import-example",
+      "label": "Authorized import and ordinary query",
+      "display": "python infile-demo.py",
+      "argv": [
+        "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\tasks\\infile\\env\\Scripts\\python.exe",
+        "-B",
+        "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\acceptance-r2\\infile-demo.py"
+      ],
+      "start_at_seconds": 0
+    },
+    {
+      "id": "boundary-checks",
+      "label": "Names and single-use streams",
+      "display": "python -m pytest test_infile_boundary.py -q",
+      "argv": [
+        "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\tasks\\infile\\env\\Scripts\\python.exe",
+        "-B",
+        "-m",
+        "pytest",
+        "-q",
+        "--no-header",
+        "-o",
+        "addopts=",
+        "-p",
+        "no:cacheprovider",
+        "--tb=short",
+        "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\acceptance-r2\\test_infile_boundary.py",
+        "--basetemp",
+        "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\recording\\r1\\tmp-boundary"
+      ],
+      "start_at_seconds": 18
+    },
+    {
+      "id": "lifetime-checks",
+      "label": "Command lifetime and legacy import",
+      "display": "python -m pytest test_infile_lifetime.py -q",
+      "argv": [
+        "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\tasks\\infile\\env\\Scripts\\python.exe",
+        "-B",
+        "-m",
+        "pytest",
+        "-q",
+        "--no-header",
+        "-o",
+        "addopts=",
+        "-p",
+        "no:cacheprovider",
+        "--tb=short",
+        "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\acceptance-r2\\test_infile_lifetime.py",
+        "--basetemp",
+        "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\recording\\r1\\tmp-lifetime"
+      ],
+      "start_at_seconds": 40
+    },
+    {
+      "id": "package-checks",
+      "label": "Package protocol and compatibility checks",
+      "display": "python -m pytest pymysql/tests/test_local_infile_streams.py -q -W error",
+      "argv": [
+        "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\tasks\\infile\\env\\Scripts\\python.exe",
+        "-B",
+        "-m",
+        "pytest",
+        "-q",
+        "--no-header",
+        "-W",
+        "error",
+        "-o",
+        "addopts=",
+        "-p",
+        "no:cacheprovider",
+        "--tb=short",
+        "pymysql/tests/test_local_infile_streams.py",
+        "--basetemp",
+        "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\recording\\r1\\tmp-package"
+      ],
+      "start_at_seconds": 57
+    }
+  ]
+}

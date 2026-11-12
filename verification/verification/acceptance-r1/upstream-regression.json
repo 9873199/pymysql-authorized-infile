@@ -1,0 +1,26 @@
+{
+  "time": "2026-11-13T04:08:29+08:00",
+  "argv": [
+    "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\tasks\\infile\\env\\Scripts\\python.exe",
+    "-B",
+    "-m",
+    "pytest",
+    "-q",
+    "-o",
+    "addopts=",
+    "-p",
+    "no:cacheprovider",
+    "--tb=short",
+    "pymysql/tests/test_converters.py",
+    "pymysql/tests/test_err.py",
+    "pymysql/tests/test_charset.py",
+    "--basetemp",
+    "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\acceptance-r1/tmp-upstream",
+    "--junitxml",
+    "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\acceptance-r1/upstream.xml"
+  ],
+  "cwd": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\acceptance-r1\\replay-source",
+  "exit_code": 0,
+  "stdout_log": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\acceptance-r1\\upstream-regression.stdout.log",
+  "stderr_log": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\acceptance-r1\\upstream-regression.stderr.log"
+}

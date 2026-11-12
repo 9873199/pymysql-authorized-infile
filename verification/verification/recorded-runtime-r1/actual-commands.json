@@ -1,0 +1,77 @@
+[
+  {
+    "id": "import-example",
+    "argv": [
+      "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\tasks\\infile\\env\\Scripts\\python.exe",
+      "-B",
+      "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\acceptance-r2\\infile-demo.py"
+    ],
+    "exit_code": 0,
+    "finished_at_seconds": 1.7
+  },
+  {
+    "id": "boundary-checks",
+    "argv": [
+      "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\tasks\\infile\\env\\Scripts\\python.exe",
+      "-B",
+      "-m",
+      "pytest",
+      "-q",
+      "--no-header",
+      "-o",
+      "addopts=",
+      "-p",
+      "no:cacheprovider",
+      "--tb=short",
+      "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\acceptance-r2\\test_infile_boundary.py",
+      "--basetemp",
+      "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\recording\\r1\\tmp-boundary"
+    ],
+    "exit_code": 1,
+    "finished_at_seconds": 21.57
+  },
+  {
+    "id": "lifetime-checks",
+    "argv": [
+      "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\tasks\\infile\\env\\Scripts\\python.exe",
+      "-B",
+      "-m",
+      "pytest",
+      "-q",
+      "--no-header",
+      "-o",
+      "addopts=",
+      "-p",
+      "no:cacheprovider",
+      "--tb=short",
+      "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\acceptance-r2\\test_infile_lifetime.py",
+      "--basetemp",
+      "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\recording\\r1\\tmp-lifetime"
+    ],
+    "exit_code": 0,
+    "finished_at_seconds": 43.01
+  },
+  {
+    "id": "package-checks",
+    "argv": [
+      "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\tasks\\infile\\env\\Scripts\\python.exe",
+      "-B",
+      "-m",
+      "pytest",
+      "-q",
+      "--no-header",
+      "-W",
+      "error",
+      "-o",
+      "addopts=",
+      "-p",
+      "no:cacheprovider",
+      "--tb=short",
+      "pymysql/tests/test_local_infile_streams.py",
+      "--basetemp",
+      "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\recording\\r1\\tmp-package"
+    ],
+    "exit_code": 0,
+    "finished_at_seconds": 60.64
+  }
+]

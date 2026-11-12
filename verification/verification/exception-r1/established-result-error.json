@@ -1,0 +1,25 @@
+{
+  "time": "2026-11-13T04:17:55+08:00",
+  "argv": [
+    "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\tasks\\infile\\env\\Scripts\\python.exe",
+    "-B",
+    "-m",
+    "pytest",
+    "-q",
+    "-s",
+    "-o",
+    "addopts=",
+    "-p",
+    "no:cacheprovider",
+    "--tb=short",
+    "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\exception-r1/test_infile_exception.py",
+    "--basetemp",
+    "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\exception-r1/tmp-error",
+    "--junitxml",
+    "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\exception-r1/errors.xml"
+  ],
+  "cwd": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\exception-r1\\replay-source",
+  "exit_code": 1,
+  "stdout_log": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\exception-r1\\established-result-error.stdout.log",
+  "stderr_log": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\exception-r1\\established-result-error.stderr.log"
+}

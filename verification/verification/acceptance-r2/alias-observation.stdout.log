@@ -1,0 +1,1 @@
+{"same_object_for_both_names": true, "read_calls_before_alias": 2, "read_calls_after_alias": 4, "raised": null, "uploads": [{"name": "a", "data": "one-generated-stream"}, {"name": "alias", "data": "one-generated-stream"}], "caller_stream_closed": false, "connection_open": true}

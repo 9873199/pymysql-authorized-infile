@@ -1,0 +1,27 @@
+All 32 tests pass even with `-W error`, lint and format are clean. The implementation is complete.
+
+## 总结
+
+在提交 `7b9584f` 基础上实现了**按单次 `execute` 授权**的 `LOAD DATA LOCAL INFILE` 入口，授权映射只在本次命令的结果集生命周期内有效。
+
+### 新入口
+
+```python
+cur.execute(sql, local_infile_streams={b"approved.csv": binary_stream})
+```
+
+`Cursor` 和 `SSCursor`（含 Dict 变体）均支持，关键字-only 参数；不传时旧的布尔 `local_infile` 行为完全不变。
+
+### `pymysql/connections.py` 核心语义
+
+- **精确字节匹配**：0xfb 包里的文件名保持原始 `bytes`（`LoadLocalPacketWrapper.filename` 本就是 bytes），直接 `dict.pop(raw_bytes)` 命中，不解码、不规范化、不查磁盘。授权模式下任何服务器名字都不会触发 `open()`（`_send_local_stream` 只读流）。
+- **一次性消费**：用 `pop()` 取出，同一授权流第二次被索取即未命中；同一命令可有多个合法请求，各消费各的流；调用者传入的原映射不被修改。
+- **失同步即关连接**：未命中（CR 2068）、流读取出错（含 `BaseException` 如 KeyboardInterrupt）、写入失败、上传结束后收到非 OK/ERR 的意外包，都 `_force_close()`，避免下一条查询读到尾包；服务器正常 ERR 包是同步终止响应，保留连接可用。
+- **生命周期撤销**：`query()`/`next_result()` 用 `_maybe_revoke_local_infile_streams()` 在无活跃结果集且无 `has_next` 时撤销；SSCursor 行未读完期间授权仍属于原命令，EOF/`_finish_unbuffered_query`（含超时分支）/游标 `close()`/连接 `close()`/`_force_close()`/重连 `connect()`/异常路径全部撤销。流所有权归调用者，库内绝不关闭。
+- **安装时机**：先校验参数，待 `_execute_command()` 排空上一条未读完的 SSCursor 结果后再安装授权，防止旧结果的收尾撤销掉新授权。
+
+### 验证（`pymysql/tests/test_local_infile_streams.py`，32 个用例）
+
+内存中的脚本化 MySQL 对端（仅 127.0.0.1、临时端口，无真实服务器/线上连接）+ 探针：帧感知的 `open` 探针证明授权模式零 `open()` 调用，流探针记录每次 `read` 并验证未被 `close`。覆盖你要求的全部场景——普通 SELECT 被恶意索取文件、重复索取、多结果（缓冲/SSCursor）、流中途 OSError 与 KeyboardInterrupt、新命令复用旧名字（拒绝）与重新授权（成功）、精确字节/大小写差异、nextset、游标关闭、异常、重连、写入失败、意外尾包，以及旧布尔开关兼容性。测试数据全部临时生成，不触碰真实私密文件。
+
+另更新了 `CHANGELOG.md` 与 `docs/source/user/examples.rst`；`ruff check`、`ruff format --check` 全绿，离线可跑的既有测试（58 项）全部通过。需要真实 MySQL 的测试在此环境无法运行，行为保持兼容。

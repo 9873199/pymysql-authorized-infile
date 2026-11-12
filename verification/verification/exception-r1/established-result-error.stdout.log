@@ -1,0 +1,18 @@
+{'operation': 'fetchone', 'error': (1105, 'generated result failure'), 'grant_revoked': False, 'connection_open': True, 'stream_read_calls': 0, 'stream_close_calls': 0}
+F{'operation': 'close', 'error': (1105, 'generated result failure'), 'grant_revoked': False, 'connection_open': True, 'stream_read_calls': 0, 'stream_close_calls': 0}
+F
+================================== FAILURES ===================================
+__________ test_established_unbuffered_error_revokes_grant[fetchone] __________
+..\test_infile_exception.py:58: in test_established_unbuffered_error_revokes_grant
+    assert connection._local_infile_streams is None
+E   AssertionError: assert {b'a': <infile_exception_peer.ObservedStream object at 0x0000019033115170>} is None
+E    +  where {b'a': <infile_exception_peer.ObservedStream object at 0x0000019033115170>} = <pymysql.connections.Connection object at 0x000001903316E270>._local_infile_streams
+___________ test_established_unbuffered_error_revokes_grant[close] ____________
+..\test_infile_exception.py:58: in test_established_unbuffered_error_revokes_grant
+    assert connection._local_infile_streams is None
+E   AssertionError: assert {b'a': <infile_exception_peer.ObservedStream object at 0x00000190331161B0>} is None
+E    +  where {b'a': <infile_exception_peer.ObservedStream object at 0x00000190331161B0>} = <pymysql.connections.Connection object at 0x0000019032F08980>._local_infile_streams
+=========================== short test summary info ===========================
+FAILED ..\test_infile_exception.py::test_established_unbuffered_error_revokes_grant[fetchone]
+FAILED ..\test_infile_exception.py::test_established_unbuffered_error_revokes_grant[close]
+2 failed in 1.23s

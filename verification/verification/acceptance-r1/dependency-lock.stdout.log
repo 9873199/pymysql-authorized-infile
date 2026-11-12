@@ -1,0 +1,15 @@
+cffi==2.1.1
+colorama==0.4.6
+coverage==7.17.3
+cryptography==50.0.2
+iniconfig==2.3.1
+packaging==26.3
+pluggy==1.7.0
+pycparser==3.12
+Pygments==2.21.0
+-e git+https://github.com/PyMySQL/PyMySQL.git@7b9584ff127fac3138668b01a321ebace725663c#egg=PyMySQL
+PyNaCl==1.6.2
+pytest==9.2.0
+pytest-cov==7.1.0
+ruff==0.17.5
+setuptools==84.2.1

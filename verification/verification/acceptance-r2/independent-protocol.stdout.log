@@ -1,0 +1,16 @@
+.........F...F                                                           [100%]
+================================== FAILURES ===================================
+___________ test_one_stream_object_cannot_be_consumed_twice[False] ____________
+..\test_infile_boundary.py:110: in test_one_stream_object_cannot_be_consumed_twice
+    with pytest.raises(Exception):
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE Exception
+__ test_same_stream_alias_is_not_a_second_authorization_after_caller_rewind ___
+..\test_infile_boundary.py:179: in test_same_stream_alias_is_not_a_second_authorization_after_caller_rewind
+    with pytest.raises(Exception):
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE Exception
+=========================== short test summary info ===========================
+FAILED ..\test_infile_boundary.py::test_one_stream_object_cannot_be_consumed_twice[False]
+FAILED ..\test_infile_boundary.py::test_same_stream_alias_is_not_a_second_authorization_after_caller_rewind
+2 failed, 12 passed in 5.10s

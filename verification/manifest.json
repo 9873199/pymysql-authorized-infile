@@ -1,0 +1,443 @@
+{
+  "created": "2026-11-13T04:20:20+08:00",
+  "reviewed": true,
+  "reviewer": "Codex primary agent, AI-assisted",
+  "uid": 1740,
+  "frozen_commit": "95b01a407375544006f066de2743e79a6599e171",
+  "native_trajectory_sha256": "522be3bfd24d4eb9aefebcc614ed121ef938af0315a03d672708413e922c073a",
+  "files": [
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\freeze.json",
+      "path": "freeze.json",
+      "sha256": "8520049eaa7d137142c836db20d9db7b8039201e23ef48f0311d37438c7c1c60"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\freeze-audit.json",
+      "path": "freeze-audit.json",
+      "sha256": "5813cbb83fd6959abcefd7698a36ea835a48405def5263c963c07198043c1333"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\environment-reviewed.json",
+      "path": "environment-reviewed.json",
+      "sha256": "1240da1bacf2bd38a991148ab12d9b3ea1afc3376ae19b86db91f3309570bf05"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\evidence-map.json",
+      "path": "evidence-map.json",
+      "sha256": "04e3a6b6eb27c9f62c451d236195dcab08499db829030517dcef0c3fd7378ac7"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\model-final-answer.txt",
+      "path": "model-final-answer.txt",
+      "sha256": "b0b1869b5c04e54dd7e897776042ae510c3bcf786cada966c9b750ea21149fe4"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\test-results.json",
+      "path": "test-results.json",
+      "sha256": "1a0dc0b1286a8c4d19885760ccc8fc4b2d2465ffa86fd549c451139c4637e507"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\evaluation-qc.json",
+      "path": "evaluation-qc.json",
+      "sha256": "15a0df0c78b79ed2bf30eb3a33baf97cb3208cf9e71bcc16f30c02d381879358"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\acceptance-r1\\actual-import.json",
+      "path": "verification/acceptance-r1/actual-import.json",
+      "sha256": "ab3c58a572d0ec3d1f166985e7b7fcec9821236bed072269677735b534be26ab"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\acceptance-r1\\actual-import.stderr.log",
+      "path": "verification/acceptance-r1/actual-import.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\acceptance-r1\\actual-import.stdout.log",
+      "path": "verification/acceptance-r1/actual-import.stdout.log",
+      "sha256": "3358679eb6efbb2dc34754aa5e7286d90ccf06d09b9df526039b782250b8aa7b"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\acceptance-r1\\boundary.xml",
+      "path": "verification/acceptance-r1/boundary.xml",
+      "sha256": "99015663b07b8b901c2f820ccf7a264105e7c0607936e36549b5d65ca587e4a0"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\acceptance-r1\\dependency-lock.json",
+      "path": "verification/acceptance-r1/dependency-lock.json",
+      "sha256": "8e75fdf13c7950dba45101489690944c6295d49f35d9e106de4974734cc78371"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\acceptance-r1\\dependency-lock.stderr.log",
+      "path": "verification/acceptance-r1/dependency-lock.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\acceptance-r1\\dependency-lock.stdout.log",
+      "path": "verification/acceptance-r1/dependency-lock.stdout.log",
+      "sha256": "f6e5bf2360a798e6d3481c55764655d2aec7fdd43ef6a065d5348aa247e1f332"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\acceptance-r1\\independent-lifetime.json",
+      "path": "verification/acceptance-r1/independent-lifetime.json",
+      "sha256": "883a8143e122a8bc36fc48eeea3a02e661392c9f0b453c0352f1be3f64728f4a"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\acceptance-r1\\independent-lifetime.stderr.log",
+      "path": "verification/acceptance-r1/independent-lifetime.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\acceptance-r1\\independent-lifetime.stdout.log",
+      "path": "verification/acceptance-r1/independent-lifetime.stdout.log",
+      "sha256": "9df094a76d32427726104558ebbe0d50da3a97999e728304566504f10dfc9eba"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\acceptance-r1\\independent-protocol.json",
+      "path": "verification/acceptance-r1/independent-protocol.json",
+      "sha256": "0834a47c017b62934b167abf8d495eeeebb7baf1e73402211e34535fb2522c31"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\acceptance-r1\\independent-protocol.stderr.log",
+      "path": "verification/acceptance-r1/independent-protocol.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\acceptance-r1\\independent-protocol.stdout.log",
+      "path": "verification/acceptance-r1/independent-protocol.stdout.log",
+      "sha256": "a584fb5a26e71a22ab4ab5b67545559cc8cfce1a8756dfebeb72989376d635e9"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\acceptance-r1\\infile-demo.py",
+      "path": "verification/acceptance-r1/infile-demo.py",
+      "sha256": "e61b2f8f38c522ddfa88bc2a94223107eed17478f5d765b2402ca3f1ddde6303"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\acceptance-r1\\infile-memory-peer.py",
+      "path": "verification/acceptance-r1/infile-memory-peer.py",
+      "sha256": "69741303a5535ed9018105cef8ece3b0f76d77c0df6c41c3a6d23df3c54521a7"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\acceptance-r1\\infile_api.py",
+      "path": "verification/acceptance-r1/infile_api.py",
+      "sha256": "3334758d2e603dd2fbf8e43c0e475401986386bf0b8c8915642bfdd22e62d4e1"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\acceptance-r1\\lifetime.xml",
+      "path": "verification/acceptance-r1/lifetime.xml",
+      "sha256": "e78cffe7b36cbb442411c75b43e89c42d3726a3b782b4f0be67bf2d10c73447e"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\acceptance-r1\\local-demonstration.json",
+      "path": "verification/acceptance-r1/local-demonstration.json",
+      "sha256": "02eadf3de00772df2da4eb155fbbdaed8c8c8a47c2de3ffe611cb7806204f9dc"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\acceptance-r1\\local-demonstration.stderr.log",
+      "path": "verification/acceptance-r1/local-demonstration.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\acceptance-r1\\local-demonstration.stdout.log",
+      "path": "verification/acceptance-r1/local-demonstration.stdout.log",
+      "sha256": "aa1f8dc0167c5ca370e8f4313f7aaa1371cc79439d1b4580f9d54a00a51d0302"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\acceptance-r1\\model-protocol-tests.json",
+      "path": "verification/acceptance-r1/model-protocol-tests.json",
+      "sha256": "03ad98bdaca253ada69ede23516613d1c0b60845341a7ac649376ca075417a4e"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\acceptance-r1\\model-protocol-tests.stderr.log",
+      "path": "verification/acceptance-r1/model-protocol-tests.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\acceptance-r1\\model-protocol-tests.stdout.log",
+      "path": "verification/acceptance-r1/model-protocol-tests.stdout.log",
+      "sha256": "ac8f04cdc5e695c25682a7a6c5f2fafaeb726ea2d48da018c9199b0191c8bf6a"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\acceptance-r1\\model.xml",
+      "path": "verification/acceptance-r1/model.xml",
+      "sha256": "825c4000ec48f3153088387593f872db3975059ac3d6d1e5093a8c5b95336adf"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\acceptance-r1\\replay-proof.json",
+      "path": "verification/acceptance-r1/replay-proof.json",
+      "sha256": "6081559b96522bd7074240f3496bb52f6942e24449432bdc6b3c1102597c97de"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\acceptance-r1\\reviewed-spec.json",
+      "path": "verification/acceptance-r1/reviewed-spec.json",
+      "sha256": "d046bd9e119da92a8db49329ddf58967b251dc4ce20f84b052363103b617ee84"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\acceptance-r1\\test_infile_boundary.py",
+      "path": "verification/acceptance-r1/test_infile_boundary.py",
+      "sha256": "d4267eaa25a508515b7e43407de1ee56b223150ee5826b2ee64b562fd5b3d2c6"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\acceptance-r1\\test_infile_lifetime.py",
+      "path": "verification/acceptance-r1/test_infile_lifetime.py",
+      "sha256": "0e9c8b08867e87b7250ed621ee961cde7497c5e4667be81260e8201fce76fcb3"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\acceptance-r1\\upstream-regression.json",
+      "path": "verification/acceptance-r1/upstream-regression.json",
+      "sha256": "630839691db24123da584dad07cadb873b1a18904bbad720e5c2d99b13f7727e"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\acceptance-r1\\upstream-regression.stderr.log",
+      "path": "verification/acceptance-r1/upstream-regression.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\acceptance-r1\\upstream-regression.stdout.log",
+      "path": "verification/acceptance-r1/upstream-regression.stdout.log",
+      "sha256": "5d001c6ac1d10fdb203c5e2a27b999e91b4bf2c7453dbc456a43c2078c5a37ee"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\acceptance-r1\\upstream.xml",
+      "path": "verification/acceptance-r1/upstream.xml",
+      "sha256": "90888399346480eb02a7fcdf0d69df18011c9c2d009294bec850a07733f51b6a"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\acceptance-r2\\actual-import.json",
+      "path": "verification/acceptance-r2/actual-import.json",
+      "sha256": "c1f2d3cff6357b334a68031904d73efea247b6510dfa9be95c05d983bb8756c7"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\acceptance-r2\\actual-import.stderr.log",
+      "path": "verification/acceptance-r2/actual-import.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\acceptance-r2\\actual-import.stdout.log",
+      "path": "verification/acceptance-r2/actual-import.stdout.log",
+      "sha256": "c789871b0999ce4d6d5d092b272d838a4f2cb4b81ef7227acc4f6430f7238c91"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\acceptance-r2\\alias-observation.json",
+      "path": "verification/acceptance-r2/alias-observation.json",
+      "sha256": "0cd66791c9a734c7ca7661d7e08576ab85fb066abbc349c86ded552130770320"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\acceptance-r2\\alias-observation.stderr.log",
+      "path": "verification/acceptance-r2/alias-observation.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\acceptance-r2\\alias-observation.stdout.log",
+      "path": "verification/acceptance-r2/alias-observation.stdout.log",
+      "sha256": "0e3d73e3e196a537e678afc71e83e4a30157ccbe8e003730bd9e890031fd4015"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\acceptance-r2\\boundary.xml",
+      "path": "verification/acceptance-r2/boundary.xml",
+      "sha256": "02c154b913563e7b85075329eab1af47d30f3ab37a649d159f028de894a15d12"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\acceptance-r2\\dependency-lock.json",
+      "path": "verification/acceptance-r2/dependency-lock.json",
+      "sha256": "2044111729cc316e59b77da585fd05230ab8448bee10a690c53b432208419260"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\acceptance-r2\\dependency-lock.stderr.log",
+      "path": "verification/acceptance-r2/dependency-lock.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\acceptance-r2\\dependency-lock.stdout.log",
+      "path": "verification/acceptance-r2/dependency-lock.stdout.log",
+      "sha256": "f6e5bf2360a798e6d3481c55764655d2aec7fdd43ef6a065d5348aa247e1f332"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\acceptance-r2\\independent-lifetime.json",
+      "path": "verification/acceptance-r2/independent-lifetime.json",
+      "sha256": "c9c4a61ea6e3fb7f05d93b2ab7b207b502e554c308c00b4747482898115692de"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\acceptance-r2\\independent-lifetime.stderr.log",
+      "path": "verification/acceptance-r2/independent-lifetime.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\acceptance-r2\\independent-lifetime.stdout.log",
+      "path": "verification/acceptance-r2/independent-lifetime.stdout.log",
+      "sha256": "334eb88363730c6169d8770a103a3951313916aab30d84741e74a4b940386aca"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\acceptance-r2\\independent-protocol.json",
+      "path": "verification/acceptance-r2/independent-protocol.json",
+      "sha256": "b7d613479801dc6ec6fdca38cda9cb4bf2b8bcb9724a1f272b034793d148e1e6"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\acceptance-r2\\independent-protocol.stderr.log",
+      "path": "verification/acceptance-r2/independent-protocol.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\acceptance-r2\\independent-protocol.stdout.log",
+      "path": "verification/acceptance-r2/independent-protocol.stdout.log",
+      "sha256": "d60848380729eaee17f43f7f29fa034cb50adc41fe2059a69c690b26e22554ab"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\acceptance-r2\\infile-alias-observation.py",
+      "path": "verification/acceptance-r2/infile-alias-observation.py",
+      "sha256": "f8bedfa970a1b14569db911f9ea8eda7d760bbcae11b668a69caea6dc8d11a4e"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\acceptance-r2\\infile-demo.py",
+      "path": "verification/acceptance-r2/infile-demo.py",
+      "sha256": "e61b2f8f38c522ddfa88bc2a94223107eed17478f5d765b2402ca3f1ddde6303"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\acceptance-r2\\infile-memory-peer.py",
+      "path": "verification/acceptance-r2/infile-memory-peer.py",
+      "sha256": "69741303a5535ed9018105cef8ece3b0f76d77c0df6c41c3a6d23df3c54521a7"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\acceptance-r2\\infile_api.py",
+      "path": "verification/acceptance-r2/infile_api.py",
+      "sha256": "3334758d2e603dd2fbf8e43c0e475401986386bf0b8c8915642bfdd22e62d4e1"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\acceptance-r2\\lifetime.xml",
+      "path": "verification/acceptance-r2/lifetime.xml",
+      "sha256": "357869a85caab3222f85b3eede43977217f696ae745f499bd86660b70326ce60"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\acceptance-r2\\replay-proof.json",
+      "path": "verification/acceptance-r2/replay-proof.json",
+      "sha256": "1bddc60f4b256548d9feb6908c2f71ae20a935401b291e90230601d587d79690"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\acceptance-r2\\reproduction-notes.md",
+      "path": "verification/acceptance-r2/reproduction-notes.md",
+      "sha256": "89df6c4e1f1c7cda7bd8d5ec72ded0f5da849525c4210b567304f83aee8ef95e"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\acceptance-r2\\reviewed-spec.json",
+      "path": "verification/acceptance-r2/reviewed-spec.json",
+      "sha256": "51ddde06a0c915bdce8224165905191fa4476460a1b3892c223ee40cf696b6a3"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\acceptance-r2\\test_infile_boundary.py",
+      "path": "verification/acceptance-r2/test_infile_boundary.py",
+      "sha256": "cf501d9a9aa60f6f3b48212af279d9696754a9587d5e2f1bab7652e6e1c63b78"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\acceptance-r2\\test_infile_lifetime.py",
+      "path": "verification/acceptance-r2/test_infile_lifetime.py",
+      "sha256": "bfcef1242c8f1e01fe8f1e875729b573e0db5ec9c3e8fb2a7101414106c18200"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\exception-r1\\actual-import.json",
+      "path": "verification/exception-r1/actual-import.json",
+      "sha256": "2219a03c0f2529da3bf4cbcca3328b9211e40c43277ad87ab1953beb5e4dca0b"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\exception-r1\\actual-import.stderr.log",
+      "path": "verification/exception-r1/actual-import.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\exception-r1\\actual-import.stdout.log",
+      "path": "verification/exception-r1/actual-import.stdout.log",
+      "sha256": "7a4d37416ddbe86530fd647326805dbb9323b66fc3047366bb9b04cff3bc3362"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\exception-r1\\dependency-lock.json",
+      "path": "verification/exception-r1/dependency-lock.json",
+      "sha256": "61fc9d825b9cf109f24b830ae940c7aef0465768916bde9ea8b38b8c93ed0c9e"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\exception-r1\\dependency-lock.stderr.log",
+      "path": "verification/exception-r1/dependency-lock.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\exception-r1\\dependency-lock.stdout.log",
+      "path": "verification/exception-r1/dependency-lock.stdout.log",
+      "sha256": "f6e5bf2360a798e6d3481c55764655d2aec7fdd43ef6a065d5348aa247e1f332"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\exception-r1\\errors.xml",
+      "path": "verification/exception-r1/errors.xml",
+      "sha256": "1680b09ff8cf1ef8e07cdeae8fccf1df7fdf150104801ae7c76b680a804d8976"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\exception-r1\\established-result-error.json",
+      "path": "verification/exception-r1/established-result-error.json",
+      "sha256": "d07bef010979012106fde63964128cc80f036d42e72ffd31771a8f4bb4bb4e80"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\exception-r1\\established-result-error.stderr.log",
+      "path": "verification/exception-r1/established-result-error.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\exception-r1\\established-result-error.stdout.log",
+      "path": "verification/exception-r1/established-result-error.stdout.log",
+      "sha256": "a038eb1d54505b4b635f8e3853a75bb929428ce9a52b2c2f6523e28d079e3a9f"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\exception-r1\\infile-memory-peer.py",
+      "path": "verification/exception-r1/infile-memory-peer.py",
+      "sha256": "69741303a5535ed9018105cef8ece3b0f76d77c0df6c41c3a6d23df3c54521a7"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\exception-r1\\infile_api.py",
+      "path": "verification/exception-r1/infile_api.py",
+      "sha256": "3334758d2e603dd2fbf8e43c0e475401986386bf0b8c8915642bfdd22e62d4e1"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\exception-r1\\replay-proof.json",
+      "path": "verification/exception-r1/replay-proof.json",
+      "sha256": "c48bd0b301356874f95b52f80f21b331ba8c839fdf04c8c86b31d62e6c0a7f34"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\exception-r1\\reviewed-spec.json",
+      "path": "verification/exception-r1/reviewed-spec.json",
+      "sha256": "b734c69f5c11a94791642ac39ee68ad3b857ce7c3e670fe450124a4de1d5b3fd"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\exception-r1\\test_infile_exception.py",
+      "path": "verification/exception-r1/test_infile_exception.py",
+      "sha256": "31e807bd875f45f316407a724aeb6a2aaaa77f44f3282d44be8375734611ab99"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\recorded-runtime-r1\\actual-commands.json",
+      "path": "verification/recorded-runtime-r1/actual-commands.json",
+      "sha256": "66d54751baa2e4516d0cc6a8c79515dbcbb062d395ace313ae6a130152e0acd3"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\recorded-runtime-r1\\boundary-checks-output.log",
+      "path": "verification/recorded-runtime-r1/boundary-checks-output.log",
+      "sha256": "335e12af4d334cf913eb54c7d3869c10eeb13cb726ffb0272f34b1f3451e9273"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\recorded-runtime-r1\\import-example-output.log",
+      "path": "verification/recorded-runtime-r1/import-example-output.log",
+      "sha256": "aa1f8dc0167c5ca370e8f4313f7aaa1371cc79439d1b4580f9d54a00a51d0302"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\recorded-runtime-r1\\lifetime-checks-output.log",
+      "path": "verification/recorded-runtime-r1/lifetime-checks-output.log",
+      "sha256": "8788d048173c4fc499fb6b8182d33c924a898f48608ee77ea7dbde508c3fae85"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\recorded-runtime-r1\\package-checks-output.log",
+      "path": "verification/recorded-runtime-r1/package-checks-output.log",
+      "sha256": "0a1bc97dbb1afff564ef557467b1995f9fd0ea6d749ce9813fc32dc22d7bf960"
+    },
+    {
+      "source": "D:\\hc\\userFeedback\\cache\\execution-security-new11-20261112\\evaluation\\uf-20261112-new15-infile\\verification\\recorded-runtime-r1\\spec.json",
+      "path": "verification/recorded-runtime-r1/spec.json",
+      "sha256": "95b0188c0e0270b73393023de142ffb765b0073b56385ef52a8e3f35aca44474"
+    }
+  ],
+  "reproduction_readme": "# Frozen product verification\n\n# Reproducing the frozen implementation\n\nProduct commit: 95b01a407375544006f066de2743e79a6599e171 in public repository 9873199/pymysql-authorized-infile.\nInitial commit: 7b9584ff127fac3138668b01a321ebace725663c, verified ancestor.\nNative Windows x64, CPython 3.14.3. No container or external MySQL service was used in this independent replay.\nInstall pytest using the retained dependency lock; import pymysql from a clean checkout of the product commit.\nPlace each revision's support files together and add the checkout and that support directory to PYTHONPATH.\nRun the argv arrays in the retained command JSON records, replacing only machine-local Python/cache paths.\n\nacceptance-r1: upstream converters/err/charset 17 passed; product's new protocol tests 32 passed with -W error.\nacceptance-r1 independent close-before-drain expectations were stricter than the prompt. Three affected failures are excluded.\nacceptance-r2 replaces those groups: boundary 12 passed, 2 failed (one stream identity reuse cause); lifetime 5 passed, one warning.\nalias-observation outputs two identical generated-data uploads from the same stream, with caller rewind between result sets.\nexception-r1: two tests fail after valid ERR1105 during fetchone or close, with grant_revoked=False and no stream reads/closes.\nNo later data leak is claimed from that residual authority observation.\n\nNative model actions 804-805 report 32 passed; 782-783 report a combined 58 including those 32, not 58 old plus 32 new.\nThe real database suite was not validated: original session has missing service/certificate errors. This is a scope limit.\nThe 75-second continuous video runs the clean replay in a separate ordinary verification console and keeps real failed tests visible.\nThe independent helpers never modify the frozen source or native trajectory; replay-proof.json records unchanged hashes.\n\nOnly independent evidence is added on this descendant branch. The product commit and native trajectory remain unchanged.\n",
+  "no_model_source_edits": true,
+  "native_trace_included": false
+}

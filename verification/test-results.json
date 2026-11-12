@@ -1,0 +1,30 @@
+{
+  "upstream_regression_r1": {
+    "passed": 17,
+    "failed": 0
+  },
+  "product_new_tests_r1": {
+    "passed": 32,
+    "failed": 0,
+    "warnings_error": true
+  },
+  "independent_boundary_r2": {
+    "passed": 12,
+    "failed": 2,
+    "root_causes": 1
+  },
+  "independent_lifetime_r2": {
+    "passed": 5,
+    "failed": 0,
+    "warnings": 1
+  },
+  "established_result_error_r1": {
+    "passed": 0,
+    "failed": 2,
+    "root_causes": 1
+  },
+  "superseded_close_assertions": "Three r1 failures excluded; replaced by r2",
+  "native_final_new_tests": "32 passed line 805",
+  "native_combined_tests": "58 total includes new 32; line 783",
+  "no_sum_of_overlapping_suites": true
+}
