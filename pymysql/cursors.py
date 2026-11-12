@@ -16,6 +16,9 @@ RE_INSERT_VALUES = re.compile(
     re.IGNORECASE | re.DOTALL,
 )
 
+# Sentinel distinguishing "keyword not passed" from an explicit None.
+_unset = object()
+
 
 def _backquote_escape(s):
     return s.replace("`", "``")
@@ -60,6 +63,9 @@ class Cursor:
             while self.nextset():
                 pass
         finally:
+            # Closing the cursor ends every result set this command owns, so
+            # its per-command infile grant must not survive it.
+            conn._revoke_local_infile_streams()
             self.connection = None
 
     def __enter__(self):
@@ -147,7 +153,7 @@ class Cursor:
 
         return self._mogrify(query, args)
 
-    def execute(self, query, args=None):
+    def execute(self, query, args=None, *, local_infile_streams=_unset):
         """Execute a query.
 
         :param query: Query to execute.
@@ -155,6 +161,19 @@ class Cursor:
 
         :param args: Parameters used with query. (optional)
         :type args: tuple, list or dict
+
+        :param local_infile_streams: Per-command grant for
+            ``LOAD DATA LOCAL INFILE`` requests (optional).  A mapping of the
+            exact, raw filename bytes the server sends in its 0xfb packet to
+            already open, readable binary streams.  Filenames are matched
+            byte-for-byte without decoding or path normalization, each stream
+            is consumed at most once, and an unmatched request closes the
+            connection.  No server-provided name is ever opened on disk; the
+            streams remain owned by the caller and are not closed.  The grant
+            is valid only for this command's result set lifecycle and is
+            revoked automatically afterwards.  When omitted, the connection's
+            boolean ``local_infile`` switch keeps its legacy behavior.
+        :type local_infile_streams: mapping of bytes to binary file objects
 
         :return: Number of affected rows.
         :rtype: int
@@ -167,7 +186,7 @@ class Cursor:
 
         if args is not None:
             query = self._mogrify(query, args)
-        result = self._query(query)
+        result = self._query(query, local_infile_streams=local_infile_streams)
         self._executed = query
         return result
 
@@ -329,10 +348,13 @@ class Cursor:
             raise IndexError("out of range")
         self.rownumber = r
 
-    def _query(self, q):
+    def _query(self, q, local_infile_streams=_unset):
         conn = self._get_db()
         self._clear_result()
-        conn.query(q)
+        if local_infile_streams is _unset:
+            conn.query(q)
+        else:
+            conn.query(q, local_infile_streams=local_infile_streams)
         self._do_get_result()
         return self.rowcount
 
@@ -426,14 +448,21 @@ class SSCursor(Cursor):
             while self.nextset():
                 pass
         finally:
+            # Cursor close ends the command's result set lifecycle; any
+            # per-command infile grant is revoked even if draining could not
+            # consume every remaining result set.
+            conn._revoke_local_infile_streams()
             self.connection = None
 
     __del__ = close
 
-    def _query(self, q):
+    def _query(self, q, local_infile_streams=_unset):
         conn = self._get_db()
         self._clear_result()
-        conn.query(q, unbuffered=True)
+        if local_infile_streams is _unset:
+            conn.query(q, unbuffered=True)
+        else:
+            conn.query(q, unbuffered=True, local_infile_streams=local_infile_streams)
         self._do_get_result()
         return self.rowcount
 

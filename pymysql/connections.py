@@ -4,6 +4,7 @@
 # https://dev.mysql.com/doc/refman/5.5/en/error-handling.html
 from __future__ import annotations
 
+import collections.abc
 import contextlib
 import errno
 import os
@@ -65,6 +66,12 @@ TEXT_TYPES = {
 DEFAULT_CHARSET = "utf8mb4"
 
 MAX_PACKET_LEN = 2**24 - 1
+
+# Sentinel distinguishing "argument not passed" from an explicit None.
+_unset = object()
+
+# Sentinel for "no stream was granted for this server-provided filename".
+_STREAM_NOT_GRANTED = object()
 
 
 def _pack_int24(n):
@@ -148,6 +155,12 @@ class Connection:
     :param read_default_group: Group to read from in the configuration file.
     :param autocommit: Autocommit mode. None means use server default. (default: False)
     :param local_infile: Boolean to enable the use of LOAD DATA LOCAL command. (default: False)
+        When enabled without per-command stream grants (see
+        ``Cursor.execute(..., local_infile_streams=...)``), the server may name
+        arbitrary local paths, which are opened with :func:`open`.  For
+        connections to servers that are not fully trusted, pass an explicit
+        stream mapping to ``execute()`` instead; in that mode no server-provided
+        name ever reaches the filesystem.
     :param max_allowed_packet: Max size of packet sent to server in bytes. (default: 16MB)
         Only used to limit size of "LOAD LOCAL INFILE" data packet smaller than default (16KB).
     :param defer_connect: Don't explicitly connect on construction - wait for connect call.
@@ -235,6 +248,12 @@ class Connection:
         self._local_infile = bool(local_infile)
         if self._local_infile:
             client_flag |= CLIENT.LOCAL_FILES
+
+        # Per-command grant of binary streams for LOAD DATA LOCAL INFILE.
+        # Keys are the raw filename bytes from the server's 0xfb packet; they
+        # are never decoded or normalized.  Set by Cursor.execute() and
+        # revoked when the command's result set lifecycle ends.
+        self._local_infile_streams = None
 
         if read_default_group and not read_default_file:
             if sys.platform.startswith("win"):
@@ -436,6 +455,8 @@ class Connection:
         if self._closed:
             raise err.Error("Already closed")
         self._closed = True
+        # A closed connection must never retain a per-command stream grant.
+        self._revoke_local_infile_streams()
         if self._sock is None:
             return
         send_data = struct.pack("<iB", 1, COMMAND.COM_QUIT)
@@ -452,6 +473,9 @@ class Connection:
 
     def _force_close(self):
         """Close connection without QUIT message."""
+        # Any per-command grant died with the socket; a later connect() must
+        # start with no authorization.  Streams stay open; the caller owns them.
+        self._revoke_local_infile_streams()
         if self._rfile:
             self._rfile.close()
         if self._sock:
@@ -581,18 +605,109 @@ class Connection:
             return cursor(self)
         return self.cursorclass(self)
 
+    def _set_local_infile_streams(self, streams):
+        """Install a per-command grant of LOAD DATA LOCAL INFILE streams.
+
+        ``streams`` maps the exact, raw filename bytes the server sends in its
+        0xfb packet to an already open, readable binary stream.  Keys are
+        matched byte-for-byte and are never decoded, normalized or resolved
+        against the filesystem.  Each stream is handed out at most once.
+
+        The grant is valid only for the next command's result set lifecycle;
+        it is revoked when that command finishes (including via exception,
+        ``next_result()``/``nextset()``, cursor close or reconnect).
+        """
+        if streams is None:
+            self._local_infile_streams = None
+        else:
+            self._local_infile_streams = self._validated_local_infile_streams(streams)
+
+    def _validated_local_infile_streams(self, streams):
+        """Validate a stream grant and return its private per-command copy."""
+        if not self._local_infile:
+            # The server only sends 0xfb packets to clients that advertised
+            # CLIENT.LOCAL_FILES during the handshake, so a grant on a
+            # connection created with local_infile=False could never be used.
+            raise err.ProgrammingError(
+                "local_infile_streams requires connecting with local_infile=True"
+            )
+        if not isinstance(streams, collections.abc.Mapping):
+            raise TypeError(
+                "local_infile_streams must be a mapping of raw filename "
+                "bytes to readable binary streams"
+            )
+        for name, stream in streams.items():
+            if not isinstance(name, bytes):
+                raise TypeError(
+                    "local_infile_streams keys must be raw filename bytes, "
+                    "not decoded strings"
+                )
+            read = getattr(stream, "read", None)
+            if not callable(read):
+                raise TypeError(
+                    "local_infile_streams values must be readable binary streams"
+                )
+        return dict(streams)
+
+    def _revoke_local_infile_streams(self):
+        """Drop the active per-command stream grant.
+
+        Streams are owned by the caller, so they are deliberately not closed.
+        """
+        self._local_infile_streams = None
+
+    def _maybe_revoke_local_infile_streams(self):
+        """Revoke the grant once the command has no live result set left.
+
+        A buffered result is complete as soon as it is read.  An unbuffered
+        result keeps the grant alive while its rows are still being fetched;
+        ``MySQLResult`` revokes it explicitly when it reaches EOF.  While a
+        multi-result command still has pending result sets the grant remains
+        valid for all of them, as they belong to the same command.
+        """
+        result = self._result
+        if result is None:
+            self._revoke_local_infile_streams()
+            return
+        if not result.unbuffered_active and not result.has_next:
+            self._revoke_local_infile_streams()
+
     # The following methods are INTERNAL USE ONLY (called from Cursor)
-    def query(self, sql, unbuffered=False):
+    def query(self, sql, unbuffered=False, local_infile_streams=_unset):
         # if DEBUG:
         #     print("DEBUG: sending query:", sql)
         if isinstance(sql, str):
             sql = sql.encode(self.encoding)
-        self._execute_command(COMMAND.COM_QUERY, sql)
-        self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+        # Validate before touching the wire, but install the grant only after
+        # _execute_command() has drained any unfinished previous result; that
+        # drain legitimately revokes the previous command's grant.
+        validated_streams = None
+        if local_infile_streams is not _unset and local_infile_streams is not None:
+            validated_streams = self._validated_local_infile_streams(
+                local_infile_streams
+            )
+        try:
+            self._execute_command(COMMAND.COM_QUERY, sql)
+            if local_infile_streams is not _unset:
+                self._set_local_infile_streams(validated_streams)
+            self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+        except BaseException:
+            # The command failed before its result set was established; the
+            # grant must not leak into the next command.
+            self._revoke_local_infile_streams()
+            raise
+        self._maybe_revoke_local_infile_streams()
         return self._affected_rows
 
     def next_result(self, unbuffered=False):
-        self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+        try:
+            self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+        except BaseException:
+            self._revoke_local_infile_streams()
+            raise
+        # The grant spans the whole multi-result command, so it stays installed
+        # while further result sets are pending.
+        self._maybe_revoke_local_infile_streams()
         return self._affected_rows
 
     def affected_rows(self):
@@ -672,6 +787,9 @@ class Connection:
 
     def connect(self, sock=None):
         self._closed = False
+        # Reconnecting (or retrying after a failed connect) must never revive a
+        # grant issued for a previous connection/command.
+        self._revoke_local_infile_streams()
         try:
             if sock is None:
                 if self.unix_socket:
@@ -1344,21 +1462,82 @@ class MySQLResult:
 
     def _read_load_local_packet(self, first_packet):
         conn: Connection = self.connection
-        if not conn._local_infile:
-            raise RuntimeError(
-                "**WARN**: Received LOAD_LOCAL packet but local_infile option is false."
-            )
         load_packet = LoadLocalPacketWrapper(first_packet)
-        try:
-            _send_local_file(load_packet.filename, conn)
-        finally:
-            # send the empty packet to signify we are done sending data
-            conn.write_packet(b"")
-            ok_packet = conn._read_packet()
-            # If an error occurs while sending the file, exit here without handling
-            # the OK packet.
+        # Keep the server's filename as raw protocol bytes.  It must never be
+        # decoded or turned into a path in the per-command grant mode.
+        filename = load_packet.filename
+        streams = conn._local_infile_streams
 
+        if streams is None:
+            # Legacy mode: the boolean local_infile switch allows open() with
+            # the server-provided path.
+            if not conn._local_infile:
+                raise RuntimeError(
+                    "**WARN**: Received LOAD_LOCAL packet but local_infile option is false."
+                )
+            try:
+                _send_local_file(filename, conn)
+            finally:
+                # send the empty packet to signify we are done sending data
+                conn.write_packet(b"")
+                ok_packet = conn._read_packet()
+                # If an error occurs while sending the file, exit here without
+                # handling the OK packet.
+
+            if not ok_packet.is_ok_packet():
+                raise err.OperationalError(
+                    CR.CR_COMMANDS_OUT_OF_SYNC, "Commands Out of Sync"
+                )
+            self._read_ok_packet(ok_packet)
+            return
+
+        # Per-command grant mode.  pop() gives each authorized stream out at
+        # most once and matches the raw bytes exactly; a missing key means an
+        # unknown name or a repeated request for a consumed stream.  No
+        # server-provided name ever reaches open().
+        stream = streams.pop(filename, _STREAM_NOT_GRANTED)
+        if stream is _STREAM_NOT_GRANTED:
+            # The server asked for a file this command did not authorize.
+            # The protocol state cannot be trusted, so drop the connection
+            # instead of letting a later query read trailing packets.
+            conn._force_close()
+            raise err.OperationalError(
+                CR.CR_LOAD_DATA_LOCAL_INFILE_REJECTED,
+                "LOAD DATA LOCAL INFILE request for %r was not authorized "
+                "for this command" % (filename,),
+            )
+        try:
+            _send_local_stream(stream, conn)
+            # Send the empty packet to signify we are done sending data.
+            conn.write_packet(b"")
+        except err.MySQLError:
+            # Packet write failures already closed the socket; make the
+            # close explicit and keep the original error.
+            conn._force_close()
+            raise
+        except Exception as exc:
+            # The caller's stream failed mid-transfer.  The server still
+            # expects the rest of the file, so protocol synchronization is
+            # lost; close the connection.
+            conn._force_close()
+            raise err.OperationalError(
+                CR.CR_SERVER_LOST,
+                f"Error reading authorized LOAD DATA LOCAL INFILE stream: {exc!r}",
+            ) from exc
+        except BaseException:
+            # A KeyboardInterrupt/SystemExit mid-transfer loses the packet
+            # boundary just as thoroughly; close but keep the exception.
+            conn._force_close()
+            raise
+
+        # A server ERR packet is a synchronized terminal response and is
+        # raised by _read_packet() without killing the connection.  Any other
+        # non-OK packet (e.g. a second 0xfb request) means the exchange did
+        # not end where the protocol requires, so the next query cannot be
+        # trusted to start on a packet boundary.
+        ok_packet = conn._read_packet()
         if not ok_packet.is_ok_packet():
+            conn._force_close()
             raise err.OperationalError(
                 CR.CR_COMMANDS_OUT_OF_SYNC, "Commands Out of Sync"
             )
@@ -1390,9 +1569,14 @@ class MySQLResult:
         # EOF
         packet = self.connection._read_packet()
         if self._check_packet_is_eof(packet):
+            conn = self.connection
             self.unbuffered_active = False
             self.connection = None
             self.rows = None
+            # The last result set of the unbuffered command is now consumed.
+            # The grant stays only while another result set is pending.
+            if not self.has_next:
+                conn._revoke_local_infile_streams()
             return
 
         row = self._read_row_from_packet(packet)
@@ -1413,15 +1597,21 @@ class MySQLResult:
                     ER.STATEMENT_TIMEOUT,
                 ):
                     # if the query timed out we can simply ignore this error
+                    conn = self.connection
                     self.unbuffered_active = False
                     self.connection = None
+                    # The result set died; do not leave the grant behind.
+                    conn._revoke_local_infile_streams()
                     return
 
                 raise
 
             if self._check_packet_is_eof(packet):
+                conn = self.connection
                 self.unbuffered_active = False
                 self.connection = None  # release reference to kill cyclic reference.
+                if not self.has_next:
+                    conn._revoke_local_infile_streams()
 
     def _read_rowdata_packet(self):
         """Read a rowdata packet for each data row in the result set."""
@@ -1499,8 +1689,12 @@ class MySQLResult:
         self.description = tuple(description)
 
 
-def _send_local_file(filename: str, conn: Connection):
-    """Send data packets from the local file to the server"""
+def _send_local_file(filename: bytes, conn: Connection):
+    """Send data packets from a server-named local file to the server.
+
+    Legacy ``local_infile=True`` behavior only: the filename comes straight
+    from the server's 0xfb packet and is opened on the caller's disk.
+    """
     packet_size = min(conn.max_allowed_packet, 16 * 1024)
 
     try:
@@ -1514,5 +1708,20 @@ def _send_local_file(filename: str, conn: Connection):
     except OSError as e:
         raise err.OperationalError(
             ER.FILE_NOT_FOUND,
-            f"Can't open file '{filename}': {e}",
+            f"Can't open file '{filename!r}': {e}",
         )
+
+
+def _send_local_stream(stream, conn: Connection):
+    """Send data packets from an authorized, already-open stream to the server.
+
+    The stream is owned by the caller and is never closed here.  Read errors
+    propagate to the caller, which closes the connection because the server
+    still expects the remainder of the file.
+    """
+    packet_size = min(conn.max_allowed_packet, 16 * 1024)
+    while True:
+        chunk = stream.read(packet_size)
+        if not chunk:
+            break
+        conn.write_packet(chunk)

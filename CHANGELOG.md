@@ -1,5 +1,28 @@
 # Changes
 
+## Unreleased
+
+Add per-command authorization for `LOAD DATA LOCAL INFILE`.
+`Cursor.execute()` (including `SSCursor`) now accepts a
+`local_infile_streams` keyword: a mapping of the exact, raw filename
+bytes the server sends in its 0xfb packet to already open, readable
+binary streams.
+
+* Grant keys are matched byte-for-byte against the server's filename;
+  they are never decoded, normalized or resolved on disk, and no
+  server-provided name reaches `open()` in this mode.
+* Each stream is consumed at most once; multiple legal requests in one
+  multi-result command are supported, but a repeated request for a
+  consumed stream is rejected.
+* The grant is valid only for the command's result set lifecycle and is
+  revoked on exceptions, `nextset()`/result exhaustion, cursor close and
+  reconnect.
+* Unauthorized requests, unexpected trailing packets and stream read
+  errors close the connection when protocol synchronization cannot be
+  proven.  Streams remain owned by the caller and are not closed.
+* The legacy boolean `local_infile` switch and its `open()`-based
+  behavior are unchanged when `local_infile_streams` is not passed.
+
 ## v1.2.4 (security fix)
 
 Release date: 2026-11-09
